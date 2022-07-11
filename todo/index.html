@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link href="./styles.css" rel="stylesheet" />
+
+    <title>To-Do List</title>
+  </head>
+  <body>
+    <h1 class="text-4xl text-center px-8 py-4">To-Do List</h1>
+
+    <main class="px-48 py-16 flex flex-col items-center justify-center">
+      <form id="form" class="flex items-center justify-center text-lg group">
+        <input
+          autofocus
+          id="input"
+          type="text"
+          placeholder="what are you going to do next?"
+          class="px-4 py-2 w-96 border-2 border-r-0 border-blue-200 group-hover:border-blue-800 rounded-l-xl"
+        />
+        <button
+          type="submit"
+          class="px-4 py-2 bg-blue-200 text-blue-800 font-medium border-2 border-l-0 border-blue-200 hover:bg-blue-800 hover:text-blue-200 active:bg-blue-200 active:text-blue-800 group-hover:border-blue-800 rounded-r-xl"
+        >
+          Add to List
+        </button>
+      </form>
+
+      <ul class="w-96 my-8 text-lg" id="list"></ul>
+    </main>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
