@@ -4,6 +4,8 @@ const regex = {
     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
   password:
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+  confirmPassword:
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
 };
 
 $(document).ready(() => {
@@ -23,12 +25,20 @@ $(document).ready(() => {
     confirmPassword: $('[data-error="confirmPassword"]'),
   };
 
+  const required = {
+    name: true,
+    email: true,
+    password: true,
+    confirmPassword: true,
+  };
+
   const message = {
     name: "Name must be at least 3 characters long and contain only letters and spaces",
     email: "Enter a valid email address",
     password:
       "Password must be at least 8 characters long and contain at least one number, one uppercase and one special character",
-    confirmPassword: "Either password does not match or is empty",
+    confirmPassword:
+      "Password must be at least 8 characters long and contain at least one number, one uppercase and one special character",
   };
 
   const valid = {
@@ -42,17 +52,32 @@ $(document).ready(() => {
 
   Object.keys(input).forEach((key) => {
     validate[key] = () => {
-      valid[key] =
-        key === "confirmPassword"
-          ? valid.password && input[key].val() === input.password.val()
-          : regex[key].test(input[key].val());
+      error[key].text(
+        input[key].val() === "" && required[key] ? "This field is required" : ""
+      );
+
+      valid[key] = regex[key].test(input[key].val());
 
       valid[key]
         ? input[key].removeClass("error")
         : input[key].addClass("error");
-      error[key].text(valid[key] ? "" : message[key]);
+      error[key].text(
+        valid[key] || input[key].val() === "" ? error[key].text() : message[key]
+      );
     };
   });
+
+  const matchPassword = ({ target: element }) => {
+    if (!valid.password || !valid.confirmPassword) return true;
+
+    const { id: key } = element;
+    const conflict = input.password.val() !== input.confirmPassword.val();
+
+    conflict ? input[key].addClass("error") : input[key].removeClass("error");
+    conflict && error[key].text("Passwords do not match");
+
+    return !conflict;
+  };
 
   // const validate = {
   //   name: () => {
@@ -92,17 +117,26 @@ $(document).ready(() => {
   //   },
   // };
 
+  input.name.on("focus", validate.name);
+  input.email.on("focus", validate.email);
+  input.password.on("focus", validate.password);
+  input.confirmPassword.on("focus", validate.confirmPassword);
+
   input.name.on("keyup", validate.name);
   input.email.on("keyup", validate.email);
   input.password.on("keyup", validate.password);
-  input.password.on("keyup", validate.confirmPassword);
   input.confirmPassword.on("keyup", validate.confirmPassword);
+
+  input.password.on("keyup", matchPassword);
+  input.confirmPassword.on("keyup", matchPassword);
 
   input.name.on("change", validate.name);
   input.email.on("change", validate.email);
   input.password.on("change", validate.password);
-  input.password.on("change", validate.confirmPassword);
   input.confirmPassword.on("change", validate.confirmPassword);
+
+  input.password.on("change", matchPassword);
+  input.confirmPassword.on("change", matchPassword);
 
   form.submit((e) => {
     e.preventDefault();
