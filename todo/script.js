@@ -1,8 +1,22 @@
-const todo = localStorage.getItem("todo") || [];
-const item = (value) => `
+const defaultList = [
+  {
+    title: "Code",
+    done: false,
+  },
+  {
+    title: "Practice Piano",
+    done: true,
+  },
+];
+
+const todo = JSON.parse(localStorage.getItem("todo")) || defaultList;
+
+const item = ({ title, done = false }) => `
 <li class="my-4 flex items-center justify-center gap-4">
-  <span id="task" class="inline-block w-4/5 cursor-pointer select-none"
-    >${value}</span
+  <span id="task" class="inline-block w-4/5 cursor-pointer select-none ${
+    done && "line-through"
+  }"
+    >${title}</span
   >
   <button
     id="delete"
@@ -25,10 +39,14 @@ const item = (value) => `
 </li>`;
 
 $(document).ready(() => {
+  $("body").show();
+
+  // populate the list
   todo.map((e) => {
     $("#list").append(item(e));
   });
 
+  // add item to the list
   $("#form").on("submit", function (e) {
     e.preventDefault();
 
@@ -42,15 +60,28 @@ $(document).ready(() => {
       return;
     }
 
-    $("#list").append(item(value));
+    todo.push({ title: value, done: false });
+    localStorage.setItem("todo", JSON.stringify(todo));
+
+    $("#list").append(item({ title: value, done: false }));
     $("#input").val("");
   });
 
+  // mark as done
   $("#list").on("click", "#task", function () {
+    const index = $(this).parent().index();
+    todo[index].done = !todo[index].done;
+    localStorage.setItem("todo", JSON.stringify(todo));
+
     $(this).toggleClass("line-through");
   });
 
+  // delete
   $("#list").on("click", "#delete", function () {
+    const index = $(this).parent().index();
+    todo.splice(index, 1);
+    localStorage.setItem("todo", JSON.stringify(todo));
+
     $(this.parentElement).remove();
   });
 });
