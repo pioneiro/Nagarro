@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./styles.css" />
+
+    <title>Modal</title>
+  </head>
+  <body>
+    <h1>Modal</h1>
+
+    <main>
+      <button id="modal-btn">Open Modal</button>
+    </main>
+
+    <div id="modal" class="hidden">
+      <span id="modal-layer"></span>
+      <span id="close-btn">X</span>
+
+      <form id="form">
+        <label for="name">Name: </label>
+        <input id="name" type="text" placeholder="Name" />
+        <span data-error="name"></span>
+
+        <label for="email">E-mail: </label>
+        <input id="email" type="text" placeholder="Email" />
+        <span data-error="email"></span>
+
+        <label for="password">Password: </label>
+        <input id="password" type="password" placeholder="Password" />
+        <span data-error="password"></span>
+
+        <label for="confirmPassword">Confirm Password: </label>
+        <input
+          id="confirmPassword"
+          type="password"
+          placeholder="Confirm Password"
+        />
+        <span data-error="confirmPassword"></span>
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

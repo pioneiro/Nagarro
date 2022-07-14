@@ -1,0 +1,158 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+}
+
+::selection {
+  background-color: #a3b18a88;
+}
+
+body {
+  background-color: #344e41;
+  color: #dad7cd;
+  font-family: "Roboto", sans-serif;
+}
+
+h1 {
+  margin: 2rem 0;
+  font-weight: 700;
+  font-size: 3.6rem;
+  text-align: center;
+}
+
+main {
+  width: 100%;
+  padding: 2rem 8rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 4rem;
+}
+
+main > button {
+  width: 16rem;
+  background-color: #588157;
+  color: #dad7cd;
+  font-size: 1.6rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 0.4rem;
+  padding: 0.8rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+main > button:hover {
+  background-color: #dad7cd;
+  color: #588157;
+}
+
+main > button:active {
+  background-color: #588157;
+  color: #dad7cd;
+}
+
+#modal {
+  position: absolute;
+  inset: 0;
+  background-color: #dad7cd22;
+  backdrop-filter: blur(0.2rem);
+  display: grid;
+  place-items: center;
+  z-index: 10;
+  transition: all 100ms ease-in-out;
+}
+
+#modal-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+}
+
+#modal > #close-btn {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  font-size: 2rem;
+  padding: 0.8rem;
+  cursor: pointer;
+  user-select: none;
+  z-index: 20;
+}
+
+#form {
+  width: 48rem;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 3fr;
+  grid-gap: 0.4rem;
+  z-index: 20;
+}
+
+#form > label {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+#form > input {
+  background-color: #dad7cd;
+  color: #588157;
+  width: 100%;
+  height: 3rem;
+  border: none;
+  padding: 0.4rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+#form > span {
+  grid-column: 2;
+  margin-bottom: 0.8rem;
+  height: 1.6rem;
+  font-size: 0.9rem;
+  color: #dad7cd;
+}
+
+#form > button {
+  grid-column: span 2;
+  place-self: center;
+  width: 50%;
+}
+
+#form > button {
+  background-color: #588157;
+  color: #dad7cd;
+  font-size: 1.2rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 0.4rem;
+  padding: 0.8rem;
+  cursor: pointer;
+}
+
+#form > button:hover,
+#form > button:focus {
+  background-color: #dad7cd;
+  color: #588157;
+}
+
+#form > button:active {
+  background-color: #588157;
+  color: #dad7cd;
+}
+
+.error {
+  color: #d62828;
+  border-color: #d62828;
+}
+
+.error::placeholder {
+  color: #d62828;
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
