@@ -1,0 +1,72 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+}
+
+::selection {
+  color: #e9c46a;
+  background-color: #2a9d9088;
+}
+
+body {
+  background-color: #264653;
+  color: #e9c46a;
+  font-family: "Roboto", sans-serif;
+}
+
+h1 {
+  margin: 2rem 0;
+  font-weight: 700;
+  font-size: 3.6rem;
+  text-align: center;
+}
+
+main {
+  width: 100%;
+  padding: 2rem 8rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 2rem;
+}
+
+main > h2 {
+  justify-self: left;
+  margin: 2rem 0;
+  font-weight: 700;
+  font-size: 2.4rem;
+  text-align: center;
+}
+
+main > button {
+  justify-self: right;
+  width: 16rem;
+  background-color: #e76f51;
+  color: #264653;
+  font-size: 1.6rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 0.4rem;
+  padding: 0.8rem;
+  cursor: pointer;
+  visibility: hidden;
+  user-select: none;
+}
+
+main > button:hover {
+  background-color: #e9c46a;
+  color: #264653;
+}
+
+main > button:active {
+  background-color: #e76f51;
+  color: #264653;
+}
+
+main > p {
+  grid-column: span 2;
+  text-align: justify;
+  font-size: 1.2rem;
+}
