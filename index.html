@@ -4,44 +4,47 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./styles.css" />
+
     <title>Soumyajit Das</title>
   </head>
   <body>
-    <h1>Nagarro Assignments</h1>
+    <header>
+      <h1>Nagarro Projects</h1>
 
-    <h2>
-      Soumyajit Das
-      <a href="mailto:mepioneiro@gmail.com">mepioneiro@gmail.com</a>
-    </h2>
+      <section>
+        <h2>Soumyajit Das</h2>
+        <a href="mailto:mepioneiro@gmail.com">mepioneiro@gmail.com</a>
+      </section>
+    </header>
 
-    <ol>
-      <li>
-        <a href="./pokemon/index.html">Pokémon</a>
-      </li>
+    <main>
+      <nav>
+        <button data-link="./portfolio">Portfolio</button>
+        <button data-link="./pokemon">Pokémon</button>
+        <button data-link="./todo">To-Do List</button>
+        <button data-link="./form-validation">Form Validation</button>
+        <button data-link="./cricket">Cricket Scores</button>
+        <button data-link="./copy">Copy Text</button>
+        <button data-link="./modal">Modal</button>
+      </nav>
 
-      <li>
-        <a href="./portfolio/index.html">Portfolio</a>
-      </li>
+      <div>
+        <div id="loading"></div>
+        <section>
+          <h2 id="title">Portfolio</h2>
+          <a
+            id="code"
+            href="https://github.com/pioneiro/Nagarro/tree/master/portfolio"
+            target="_blank"
+            >View Code</a
+          >
+        </section>
+        <iframe id="frame" src="./portfolio"></iframe>
+      </div>
+    </main>
 
-      <li>
-        <a href="./todo/index.html">To-Do List</a>
-      </li>
-
-      <li>
-        <a href="./form-validation/">Form Validation</a>
-      </li>
-
-      <li>
-        <a href="./cricket/index.html">Cricket Scores</a>
-      </li>
-
-      <li>
-        <a href="./copy/index.html">Copy Text</a>
-      </li>
-
-      <li>
-        <a href="./modal/index.html">Modal</a>
-      </li>
-    </ol>
+    <script src="./script.js"></script>
   </body>
 </html>
