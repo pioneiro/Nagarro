@@ -27,6 +27,10 @@ const main = () => {
 
   let activeDot = null;
 
+  const updateBackground = () => {
+    document.body.style.backgroundImage = `url(${imageSource[index.active]})`;
+  };
+
   const setActiveDot = (index) => {
     activeDot?.classList.remove("active");
     activeDot = dots.childNodes[index];
@@ -58,6 +62,7 @@ const main = () => {
       elements[index.left].classList.add("left");
 
       setActiveDot(index.active);
+      updateBackground();
     },
     right: () => {
       elements[index.left].classList.remove("left");
@@ -77,6 +82,7 @@ const main = () => {
       elements[index.right].classList.add("right");
 
       setActiveDot(index.active);
+      updateBackground();
     },
   };
 
@@ -97,6 +103,7 @@ const main = () => {
     if (i === index.right) img.classList.add("right");
     if (i === index.active) {
       img.classList.add("active");
+      updateBackground();
       setActiveDot(i);
     }
   });

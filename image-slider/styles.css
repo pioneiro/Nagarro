@@ -13,6 +13,11 @@ body {
   color: #303030;
   background-color: #dfdfdf;
   font-family: "Roboto", sans-serif;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  transition: background var(--animation-duration);
+  backdrop-filter: blur(16rem);
 }
 
 h1 {
@@ -24,6 +29,7 @@ h1 {
   inset-inline: 0;
   top: 0;
   padding: 1.6rem 0;
+  color: #dfdfdf;
 }
 
 main {
@@ -52,8 +58,8 @@ main {
   line-height: 4.8rem;
   text-align: center;
   border: none;
-  color: #dfdfdf;
-  background-color: #303030;
+  color: #303030;
+  background-color: #dfdfdf;
   height: 4.8rem;
   border-radius: 50%;
   aspect-ratio: 1 / 1;
@@ -109,11 +115,11 @@ main {
   height: 0.8rem;
   width: 0.8rem;
   border-radius: 50%;
-  background-color: #30303088;
+  background-color: #dfdfdf88;
 }
 
 .dot.active {
-  background-color: #303030;
+  background-color: #dfdfdf;
 }
 
 .enter-right {
