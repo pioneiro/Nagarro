@@ -101,7 +101,7 @@ nav > a::after {
   top: 100%;
   left: -12.5%;
   width: 0;
-  height: 0.08rem;
+  height: 1px;
   border-radius: 50%;
   background-color: #030033;
   transition: all cubic-bezier(0.4, 0, 0.2, 1) 150ms;
@@ -238,7 +238,7 @@ nav > a:hover:after {
   top: 100%;
   left: 10%;
   width: 0;
-  height: 0.08rem;
+  height: 1px;
   border-radius: 50%;
   background-color: #030033;
   transition: all cubic-bezier(0.4, 0, 0.2, 1) 150ms;
