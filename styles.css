@@ -5,6 +5,10 @@
   box-sizing: border-box;
 }
 
+::selection {
+  background-color: #52796f88;
+}
+
 body {
   color: #2f3e46;
   font-family: "Roboto", sans-serif;
@@ -78,6 +82,7 @@ main > nav > button {
   text-align: left;
   font-size: 1.2rem;
   cursor: pointer;
+  user-select: none;
   position: relative;
 }
 
@@ -124,6 +129,7 @@ main > div > section > a {
   padding: 0.2rem 1.2rem;
   border: 1px solid #238636;
   border-radius: 0.4rem;
+  user-select: none;
 }
 
 main > div > section > a:hover,

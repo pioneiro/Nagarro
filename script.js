@@ -15,6 +15,7 @@ const main = () => {
     code.setAttribute("href", new URL(link.dataset.link, github).href);
     loading.style.visibility = "visible";
     pushState(`#${link.dataset.link.slice(2)}`);
+    frame.contentWindow.focus();
   };
 
   let current = location.hash.slice(1);
