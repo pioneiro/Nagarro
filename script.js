@@ -12,6 +12,7 @@ const main = () => {
   const updateFrame = (link) => {
     frame.src = link.dataset.link;
     title.innerText = link.innerText;
+    document.title = `Nagarro Projects | ${link.innerText}`;
     code.setAttribute("href", new URL(link.dataset.link, github).href);
     loading.style.visibility = "visible";
     pushState(`#${link.dataset.link.slice(2)}`);
@@ -51,6 +52,7 @@ const main = () => {
   frame.addEventListener("load", () => {
     loading.style.visibility = "hidden";
     title.innerText = frame.contentDocument.title;
+    document.title = `Nagarro Projects | ${frame.contentDocument.title}`;
   });
 };
 
