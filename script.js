@@ -26,8 +26,6 @@ const main = () => {
       link.dataset.link.includes(current)
     )[0];
 
-    active.classList.add("active");
-
     if (!active) {
       active = links[0];
       current = "portfolio";
