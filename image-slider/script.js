@@ -10,6 +10,8 @@ const imageSource = [
 ];
 
 const main = () => {
+  let animating = false;
+
   const slider = document.getElementById("slider");
   const left = document.getElementById("left");
   const right = document.getElementById("right");
@@ -38,9 +40,13 @@ const main = () => {
   };
 
   const animate = (el, animation) => {
+    animating = true;
     el.classList.add(animation);
 
-    setTimeout(() => el.classList.remove(animation), 500);
+    setTimeout(() => {
+      animating = false;
+      el.classList.remove(animation);
+    }, 500);
   };
 
   const slide = {
@@ -92,8 +98,8 @@ const main = () => {
 
     img.src = src;
     img.classList.add("slider-img");
-    img.id = "slider-img";
     dot.classList.add("dot");
+    dot.id = i;
 
     slider.appendChild(img);
     dots.appendChild(dot);
@@ -109,6 +115,8 @@ const main = () => {
   });
 
   document.addEventListener("keydown", (e) => {
+    if (animating) return;
+
     switch (e.key) {
       case "ArrowRight":
         slide.right();
@@ -119,8 +127,26 @@ const main = () => {
     }
   });
 
-  left.addEventListener("click", slide.left);
-  right.addEventListener("click", slide.right);
+  left.addEventListener("click", !animating && slide.left);
+  right.addEventListener("click", !animating && slide.right);
+
+  dots.addEventListener("click", async (e) => {
+    if (!e.target.id.match(/[0-9]/)) return;
+
+    const target = Number(e.target.id);
+
+    if (target === index.active) return;
+
+    while (target > index.active) {
+      slide.right();
+      await new Promise((res) => setTimeout(res, 100));
+    }
+
+    while (target < index.active) {
+      slide.left();
+      await new Promise((res) => setTimeout(res, 100));
+    }
+  });
 };
 
 document.addEventListener("DOMContentLoaded", main);
