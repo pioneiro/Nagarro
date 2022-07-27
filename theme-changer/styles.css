@@ -1,0 +1,85 @@
+:root {
+  --black-primary: #242423;
+  --black-secondary: #e8eddf;
+
+  --blue-primary: #274c77;
+  --blue-secondary: #e7ecef;
+
+  --green-primary: #386641;
+  --green-secondary: #f2e8cf;
+
+  --yellow-primary: #ffe047;
+  --yellow-secondary: #3d0066;
+}
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+}
+
+main {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr 9fr;
+}
+
+button {
+  background: transparent;
+  padding: 0.4rem 1.6rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 1.2rem;
+}
+
+textarea {
+  border: 0.2rem solid;
+  border-radius: 1.2rem;
+  padding: 1.2rem;
+  font-size: 1.2rem;
+  color: inherit;
+  border-color: inherit;
+  background-color: inherit;
+}
+
+#buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+#black {
+  background-color: var(--black-primary);
+  color: var(--black-secondary);
+  border-color: var(--black-secondary);
+}
+
+#blue {
+  background-color: var(--blue-primary);
+  color: var(--blue-secondary);
+  border-color: var(--blue-secondary);
+}
+
+#green {
+  background-color: var(--green-primary);
+  color: var(--green-secondary);
+  border-color: var(--green-secondary);
+}
+
+#yellow {
+  background-color: var(--yellow-primary);
+  color: var(--yellow-secondary);
+  border-color: var(--yellow-secondary);
+}
+
+#target {
+  display: grid;
+  place-items: center;
+}
