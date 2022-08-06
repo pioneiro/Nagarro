@@ -87,7 +87,6 @@ main > nav > button {
 }
 
 main > nav > button:hover,
-main > nav > button:focus,
 main > nav > button.active {
   background-color: #ffffff;
   color: #2f3e46;
