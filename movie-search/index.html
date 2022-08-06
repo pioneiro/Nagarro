@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./styles.css" />
+
+    <title>Movies Search</title>
+  </head>
+  <body>
+    <h1>Movies Search</h1>
+
+    <main>
+      <form id="form">
+        <div id="loader" class="invisible"></div>
+        <input name="t" type="text" placeholder="movie name" />
+        <button type="submit">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            class="bi bi-search"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+            />
+          </svg>
+        </button>
+      </form>
+
+      <div id="default">Enter Movie or Series Name to Search</div>
+
+      <div id="error" class="hidden"></div>
+
+      <div id="result" class="hidden">
+        <img id="poster" data-id="Poster" />
+        <div id="details">
+          <p id="title" data-id="Title"></p>
+          <p>
+            <span id="year" data-id="Year"></span>
+            <span id="runtime" data-id="Runtime"></span>
+            <span id="rating" data-id="Rated"></span>
+          </p>
+          <p>
+            <span id="imdb" data-id="imdbRating"></span>
+            (<span id="votes" data-id="imdbVotes"></span>)
+          </p>
+          <p>
+            <span class="field">Plot: </span>
+            <span id="plot" data-id="Plot"></span>
+          </p>
+          <p>
+            <span class="field">Genre: </span>
+            <span id="genre" data-id="Genre"></span>
+          </p>
+          <p>
+            <span class="field">Starring: </span>
+            <span id="actors" data-id="Actors"></span>
+          </p>
+          <p>
+            <span class="field">Directed by: </span>
+            <span id="director" data-id="Director"></span>
+          </p>
+          <p>
+            <span class="field">Written by: </span>
+            <span id="writer" data-id="Writer"></span>
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
