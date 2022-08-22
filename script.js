@@ -64,6 +64,11 @@ const main = () => {
       link.addEventListener("click", () => {
         window.open(new URL(link.dataset.github, github).href, "_blank");
       });
+
+    "url" in link.dataset &&
+      link.addEventListener("click", () => {
+        window.open(link.dataset.url, "_blank");
+      });
   });
 
   frame.addEventListener("load", () => {
